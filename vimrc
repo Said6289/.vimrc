@@ -14,6 +14,7 @@ call vundle#begin('~/.vim/plugins')
 "
 Plugin 'yggdroot/indentline'
 Plugin 'wikitopian/hardmode'
+Plugin 'mileszs/ack'
 Plugin 'kien/ctrlp.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-surround'
@@ -56,7 +57,7 @@ set cursorline          "show the line where the cursor is
 set ttyfast
 set backspace=indent,eol,start
 set laststatus=2
-set undofile
+set undofile            "Persistent undoing even after filed is closed
 "" Open split panes to the right, and below
 set splitbelow
 set splitright
@@ -78,10 +79,10 @@ set showmatch
 set hlsearch
 nnoremap <leader>h   :noh<cr>  "Toggle highlighting of search results
 "}}}
+
 "Long Lines ----{{{
 set wrap
 set textwidth=80
-
 set colorcolumn=+1
 
 
@@ -108,15 +109,23 @@ let mapleader=" "
 
 
 
+"quicker <esc>
 inoremap jk <esc>
 inoremap <esc> <c-o>:echoe "Use jk!"<cr>a
 
+"easier colon
+nnoremap ; :
+
+"natural screen line movement
+nnoremap j gj
+nnoremap k gk
 
 "learn movements
 nnoremap ci{ :echoerr "Use ciB!"<cr>
 nnoremap ci( :echoerr "Use cib!"<cr>
 
 ""Quickly move across windows
+nnoremap <leader>w <c-w>v<c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
@@ -150,12 +159,13 @@ iabbrev fuer für
 iabbrev muessen müssen
 " }}}
 
-
-
 "Auto commands -----{{{
 augroup global
+  "go back to previous line
   autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
         \|exe "normal! g'\"" | endif
+  "save when Focus is lost
+  au FocusLost * :wa
 augroup END
 
 augroup filetype_c
