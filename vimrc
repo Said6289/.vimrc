@@ -75,9 +75,10 @@ set gdefault              "global searches by default
 
 """"" highlight search matches on the fly
 set incsearch
-set showmatch
+set noshowmatch
 set hlsearch
-nnoremap <leader>h   :noh<cr>  "Toggle highlighting of search results
+"turn off highlights
+nnoremap <leader>h   :noh<cr>  
 "}}}
 
 "Long Lines ----{{{
@@ -114,7 +115,7 @@ inoremap jk <esc>
 inoremap <esc> <c-o>:echoe "Use jk!"<cr>a
 
 "easier colon
-nnoremap ; :
+"nnoremap ; :
 
 "natural screen line movement
 nnoremap j gj
@@ -186,7 +187,7 @@ augroup END
 augroup filetype_latex
     autocmd!
     autocmd FileType tex setlocal conceallevel=0
-    autocmd FileType tex nnoremap <buffer> <leader>l :w<cr>:!pdflatex %<cr>:!chromium %:r.pdf<cr>
+    autocmd FileType tex nnoremap <buffer> <leader>l :w<cr>:!pdflatex %<cr>:!xdotool search --class mupdf key r<cr>
     autocmd FileType tex :iabbrev <buffer> beging \begin{gather}
     autocmd FileType tex :iabbrev <buffer> endg   \end{gather}
     autocmd FileType tex :iabbrev <buffer> begina \begin{align}
