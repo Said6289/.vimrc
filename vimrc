@@ -20,7 +20,7 @@ Plugin 'morhetz/gruvbox'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
-Plugin 'valloric/youcompleteme'
+"Plugin 'valloric/youcompleteme'
 
 
 
@@ -189,6 +189,7 @@ augroup filetype_latex
     autocmd FileType tex setlocal conceallevel=0
     autocmd FileType tex nnoremap <buffer> <leader>l :w<cr>:!pdflatex %<cr>:!xdotool search --class mupdf key r<cr>
     autocmd FileType tex :iabbrev <buffer> beging \begin{gather}
+    autocmd FileType tex :iabbrev <buffer> mbb \mathbb{}<left>
     autocmd FileType tex :iabbrev <buffer> endg   \end{gather}
     autocmd FileType tex :iabbrev <buffer> begina \begin{align}
     autocmd FileType tex :iabbrev <buffer> enda   \end{align}
@@ -196,7 +197,6 @@ augroup filetype_latex
     autocmd FileType tex :iabbrev <buffer> bft    \textbf{}<left>
     autocmd FileType tex :iabbrev <buffer> frac   \frac{}{}<left><left><left>
     autocmd FileType tex :iabbrev <buffer> eot    e^{j \omega t}
-    autocmd FileType tex :iabbrev <buffer> ohm   \Omega
     autocmd FileType tex :iabbrev <buffer> kmp    \underline{\hat{}}<left><left>
     autocmd FileType tex :iabbrev <buffer> uline    \underline{}<left>
     autocmd FileType tex inoremap <buffer> $ $$<esc>i
