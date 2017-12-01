@@ -10,7 +10,7 @@ call vundle#begin('~/.vim/plugins')
 
 """"INSTALLED PLUGINS
 " " let Vundle manage Vundle, required
- Plugin 'VundleVim/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 "
 Plugin 'yggdroot/indentline'
 Plugin 'wikitopian/hardmode'
@@ -42,6 +42,8 @@ filetype plugin indent on
 "" General settings
 set relativenumber
 set ruler               "show the cursor position
+set listchars=trail:-   " Display trailing whitespace as dashes
+set list
 set conceallevel=0
 set numberwidth=4
 set number

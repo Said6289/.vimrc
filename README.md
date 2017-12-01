@@ -1,5 +1,4 @@
-## My .VIMRC Configuration file
-My own .VIMRC file. Created while going through Steve Losh's
-http://stevelosh.com/blog/2010/09/coming-home-to-vim/ and
-http://learnvimscriptthehardway.stevelosh.com/
-along with other various sources. 
+# My .vimrc configuration file
+This is the .vimrc file that I stole from my friend's repository because
+I think he has a cool vim setup and I don't feel like configuring vim from
+the ground up. I think he's ok with that.
