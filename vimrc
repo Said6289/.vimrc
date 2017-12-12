@@ -35,6 +35,8 @@ filetype plugin indent on
 "}}}
 
 "General Settings {{{
+set fileencoding=utf-8
+set encoding=utf-8
 set relativenumber
 set ruler               "Show the cursor position
 set listchars=trail:-   "Display trailing whitespace as dashes
