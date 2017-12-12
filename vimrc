@@ -87,15 +87,12 @@ set colorcolumn=+1
 
 syntax on
 filetype on
-"softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
-"status line
 
-"style
 let g:gruvbox_italics=1
 let g:gruvbox_bold=1
-colorscheme gruvbox 
+colorscheme gruvbox
 set background=dark
 
 "General Mappings {{{
