@@ -12,9 +12,10 @@ Plugin 'yggdroot/indentline'
 Plugin 'wikitopian/hardmode'
 Plugin 'kien/ctrlp.vim'
 Plugin 'morhetz/gruvbox'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/syntastic'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
 
@@ -41,7 +42,6 @@ set relativenumber
 set ruler               "Show the cursor position
 set listchars=trail:-   "Display trailing whitespace as dashes
 set list
-set conceallevel=0
 set numberwidth=4
 set number
 set showcmd             "Display incomplete commands
@@ -68,7 +68,7 @@ set diffopt+=vertical
 "use normal regex
 nnoremap / /\v
 vnoremap / /\v
-"intelligent case sensitive search 
+"intelligent case sensitive search
 set ignorecase
 set smartcase
 set gdefault              "Global searches by default
@@ -78,7 +78,7 @@ set incsearch
 set noshowmatch
 set hlsearch
 "turn off highlights
-nnoremap <leader>h   :noh<cr>  
+nnoremap <leader>h   :noh<cr>
 "}}}
 
 "Long Lines {{{
@@ -104,15 +104,10 @@ let mapleader=" "
 
 "quicker <esc>
 inoremap jk <esc>
-inoremap <esc> <c-o>:echoe "Use jk!"<cr>a
 
 "natural screen line movement
 nnoremap j gj
 nnoremap k gk
-
-"learn movements
-nnoremap ci{ :echoerr "Use ciB!"<cr>
-nnoremap ci( :echoerr "Use cib!"<cr>
 
 "quickly move across windows
 nnoremap <leader>w <c-w>v<c-w>l
@@ -120,8 +115,6 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
-"don't forget
-nnoremap <c-w><c-w> :echoe "Use ctrl-j ctrl-k> ctrl-h ctrl-l!"<cr>
 
 "insert a white line below, and above
 nnoremap <leader>j o<esc>k
@@ -145,55 +138,9 @@ iabbrev fuer für
 iabbrev muessen müssen
 "}}}
 
-"Auto Commands {{{
-augroup global
-  "go back to previous line
-  autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-        \|exe "normal! g'\"" | endif
-  "save when Focus is lost
-  au FocusLost * :wa
-augroup END
-
-augroup filetype_c
-  autocmd!
-  autocmd FileType c      nnoremap <buffer> <localleader>c I//<esc>
-  autocmd FileType c      :iabbrev <buffer> iff if ()<left><left>
-  autocmd FileType c      :iabbrev <buffer> ret return ;<left><left>
-augroup END
-
-augroup filetype_javascript
-  autocmd!
-  autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
-  autocmd FileType javascript :iabbrev <buffer> ret return ;<left><left>
-  autocmd FileType javascript :iabbrev <buffer> func function ()<left><left><left>
-  autocmd FileType javascript :iabbrev <buffer> iff if ()<left><left>
-augroup END
-
-augroup filetype_latex
-  autocmd!
-  autocmd FileType tex setlocal conceallevel=0
-augroup END
-
-
-augroup filetype_javascript
-  autocmd!
-  autocmd FileType python     :iabbrev <buffer> ret return
-  autocmd FileType python     :iabbrev <buffer> iff if :<left>
-  autocmd FileType python     nnoremap <buffer> <localleader>c I#<esc>
-augroup END
-
-augroup filetype_shell
-  autocmd!
-  autocmd BufNewFile *.sh     I#!/bin/bash<esc>o
-  autocmd FileType shell      nnoremap <buffer> <localleader>c I#<esc>
-  autocmd FileType vim        nnoremap <buffer> <localleader>c I"<esc>
-augroup END
-
 ""Vismcript file settings {{{
 augroup filetype_vim
   autocmd!
   autocmd FileType vim setlocal foldmethod=marker
 augroup END
-"}}}
-
 "}}}
