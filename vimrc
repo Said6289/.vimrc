@@ -16,6 +16,8 @@ Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'editorconfig/editorconfig-vim'
+Plugin 'posva/vim-vue'
 
 call vundle#end()
 
@@ -99,43 +101,9 @@ set background=dark
 
 "General Mappings {{{
 
-"set mapleader and local mapleaders
-let mapleader=" "
-
 "quicker <esc>
 inoremap jk <esc>
 
-"natural screen line movement
-nnoremap j gj
-nnoremap k gk
-
-"quickly move across windows
-nnoremap <leader>w <c-w>v<c-w>l
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-
-"insert a white line below, and above
-nnoremap <leader>j o<esc>k
-nnoremap <leader>k O<esc>j
-
-"open and source the VIMRC
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-
-"capitalize word while in insert mode
-inoremap <c-u> <esc>vbUwa
-"capitalize word while in normal mode
-nnoremap <c-u> viwU
-
-"german abbreviations
-inoremap ae<c-d> ä
-inoremap ue<c-d> ü
-inoremap oe<c-d> ö
-inoremap ss<c-d> ß
-iabbrev fuer für
-iabbrev muessen müssen
 "}}}
 
 ""Vismcript file settings {{{
