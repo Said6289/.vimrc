@@ -99,6 +99,8 @@ let g:gruvbox_bold=1
 colorscheme gruvbox
 set background=dark
 
+set guifont=Operator\ Mono\ Semi-Light\ 14
+
 "General Mappings {{{
 
 "quicker <esc>
