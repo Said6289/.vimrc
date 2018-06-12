@@ -9,7 +9,6 @@ call vundle#begin('~/.vim/plugins')
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'yggdroot/indentline'
-Plugin 'wikitopian/hardmode'
 Plugin 'kien/ctrlp.vim'
 Plugin 'morhetz/gruvbox'
 Plugin 'scrooloose/syntastic'
