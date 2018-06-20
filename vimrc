@@ -85,7 +85,7 @@ nnoremap <leader>h   :noh<cr>
 "Long Lines {{{
 set wrap
 set textwidth=80
-set colorcolumn=+1
+set formatoptions-=t
 "}}}
 
 syntax on
