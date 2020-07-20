@@ -3,26 +3,25 @@ set nocompatible              "be iMproved, required
 filetype off                  "required
 
 ""Initialize Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin('~/.vim/plugins')
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin('~/.config/nvim/plugins')
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'yggdroot/indentline'
-Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
 Plugin 'morhetz/gruvbox'
-Plugin 'scrooloose/syntastic'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'ianks/vim-tsx'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'posva/vim-vue'
+Plugin 'dart-lang/dart-vim-plugin'
 
 call vundle#end()
 
-""ADD ALL PLUGINS BEFORE THIS LINE
+""Add all plugins before this line
 
-filetype plugin indent on
+"filetype plugin indent on
 " Brief help
 " " :PluginList       - lists configured plugins
 " " :PluginInstall    - installs plugins; append `!` to update or just
@@ -49,7 +48,6 @@ set showcmd             "Display incomplete commands
 set autowrite           "Automatically :write before running commands
 set expandtab
 set scrolloff=3         "Trying this one, for better scrolling
-set autoindent
 set showmode
 set showcmd             "Show partial command
 set visualbell
@@ -72,36 +70,42 @@ vnoremap / /\v
 "intelligent case sensitive search
 set ignorecase
 set smartcase
-set gdefault              "Global searches by default
 
 "highlight search matches on the fly
 set incsearch
 set noshowmatch
 set hlsearch
-"turn off highlights
-nnoremap <leader>h   :noh<cr>
 "}}}
 
 "Long Lines {{{
-set wrap
+set nowrap
 set textwidth=80
 set formatoptions-=t
 "}}}
 
 syntax on
 filetype on
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
+
+let g:syntastic_mode_map = {
+      \ "mode": "passive",
+      \ "active_filetypes": [],
+      \ "passive_filetypes": [] }
 
 let g:gruvbox_italics=1
 let g:gruvbox_bold=1
 colorscheme gruvbox
 set background=dark
+highlight Normal ctermbg=black
 
 "General Mappings {{{
 
 "quicker <esc>
-inoremap jk <esc>
+inoremap jk <C-\><C-n>
+tnoremap jk <C-\><C-n>
+
+map <F5> :make<CR>
 
 "}}}
 
@@ -111,3 +115,8 @@ augroup filetype_vim
   autocmd FileType vim setlocal foldmethod=marker
 augroup END
 "}}}
+
+autocmd BufNewFile,BufRead *.cls set filetype=java
+autocmd BufNewFile,BufRead *.trigger set filetype=java
+autocmd BufNewFile,BufRead *.cmp set filetype=xml
+autocmd BufNewFile,BufRead *.vue set filetype html
